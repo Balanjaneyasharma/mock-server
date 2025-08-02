@@ -1,0 +1,240 @@
+{
+    "/users": {
+        "GET": {
+            "status": 200,
+            "response": [
+                {
+                    "id": 1,
+                    "name": "John Doe"
+                }
+            ]
+        }
+    },
+    "/holidays": {
+        "GET": {
+            "status": 200,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name"
+                    ]
+                },
+                "minItems": 6
+            }
+        }
+    },
+    "/products": {
+        "GET": {
+            "status": 200,
+            "response": [
+                {
+                    "id": 101,
+                    "name": "Laptop"
+                }
+            ],
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name",
+                        "price"
+                    ]
+                },
+                "minItems": 6
+            }
+        },
+        "POST": {
+            "status": 201,
+            "response": {
+                "message": "Product created successfully"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "name",
+                    "price"
+                ]
+            }
+        }
+    },
+    "/complex-data": {
+        "GET": {
+            "status": 200,
+            "response": [],
+            "schema": {
+                "type": "array",
+                "minItems": 6,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "name": {
+                            "type": "string",
+                            "minItems": 5,
+                            "maxItems": 50
+                        },
+                        "email": {
+                            "type": "string",
+                            "format": "email"
+                        },
+                        "phone": {
+                            "type": "string",
+                            "format": "phoneNumber"
+                        },
+                        "age": {
+                            "type": "number",
+                            "min": 18,
+                            "max": 99
+                        },
+                        "isActive": {
+                            "type": "boolean"
+                        },
+                        "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "address": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string",
+                                    "minItems": 5,
+                                    "maxItems": 100
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "minItems": 3,
+                                    "maxItems": 50
+                                },
+                                "state": {
+                                    "type": "string",
+                                    "minItems": 2,
+                                    "maxItems": 50
+                                },
+                                "zipCode": {
+                                    "type": "string",
+                                    "pattern": "^[0-9]{5}(-[0-9]{4})?$"
+                                },
+                                "country": {
+                                    "type": "string",
+                                    "enum": [
+                                        "India",
+                                        "USA",
+                                        "UK",
+                                        "Germany",
+                                        "Canada"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "street",
+                                "city",
+                                "state",
+                                "zipCode",
+                                "country"
+                            ]
+                        },
+                        "skills": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 3,
+                            "maxItems": 7
+                        },
+                        "projects": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "format": "uuid"
+                                    },
+                                    "projectName": {
+                                        "type": "string",
+                                        "minItems": 5,
+                                        "maxItems": 100
+                                    },
+                                    "budget": {
+                                        "type": "number",
+                                        "min": 1000,
+                                        "max": 500000
+                                    },
+                                    "deadline": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "technologies": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 5
+                                    }
+                                },
+                                "required": [
+                                    "projectId",
+                                    "projectName",
+                                    "budget",
+                                    "deadline",
+                                    "technologies"
+                                ]
+                            },
+                            "minItems": 1,
+                            "maxItems": 3
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name",
+                        "email",
+                        "phone",
+                        "age",
+                        "isActive",
+                        "createdAt",
+                        "address",
+                        "skills",
+                        "projects"
+                    ]
+                }
+            }
+        }
+    }
+}
