@@ -25,7 +25,7 @@ mock-server/
 
 ## 📦 Installation
 ```bash
-git clone https://github.com/yourusername/mock-server.git
+git clone https://github.com/Balanjaneyasharma/mock-server.git
 cd mock-server
 npm install
 ```
