@@ -1,4 +1,4 @@
-# 🧪 Dynamic Mock Server with Schema-Based Random Data
+# 🧪 Dynamic Mock Api Server with Schema-Based Random Data
 
 A powerful Express-based mock server that dynamically generates **random API responses** using defined **schemas**. Perfect for front-end developers to simulate APIs without backend dependencies.
 
